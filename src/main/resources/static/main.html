@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <!-- 페이지 제목 -->
+    <h1 class="mb-4">main.html 확인</h1>
+
+
+    <div id="js-check" class="mb-3"></div>
+
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>성경코드</th>
+            <th>성경전서</th>
+        </tr>
+        </thead>
+        <tbody id="data-table">
+        <!-- 서버에서 받아온 데이터가 여기에 동적으로 추가될 예정 -->
+        </tbody>
+    </table>
+
+
+    <div class="mt-4">
+        <button class="btn btn-primary me-2" onclick="window.location.href='http://localhost:8080/content/specific'">Specific</button>
+        <button class="btn btn-secondary me-2" onclick="window.location.href='http://localhost:8080/content/FromTo'">FromTo</button>
+        <button class="btn btn-success me-2" onclick="window.location.href='http://localhost:8080/content/KeyWord'">KeyWord</button>
+        <button class="btn btn-danger me-2" onclick="window.location.href='http://localhost:8080/freeBoard/board'">FreeBoard</button>
+    </div>
+</div>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- main.js 로드 -->
+<script src="/js/main.js"></script>
+</body>
+</html>
