@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.List;
 
@@ -33,28 +34,32 @@ public class ContentController {
     @GetMapping(produces = MediaType.TEXT_HTML_VALUE)
     public ResponseEntity<String> contentPage() throws IOException {
         ClassPathResource htmlFile = new ClassPathResource("static/main.html");
-        String html = Files.readString(htmlFile.getFile().toPath());
+        //String html = Files.readString(htmlFile.getFile().toPath());
+        String html = new String(htmlFile.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
         return ResponseEntity.ok(html);
     }
 
     @GetMapping(value = "/specific", produces = MediaType.TEXT_HTML_VALUE)
     public ResponseEntity<String> specificPage() throws IOException {
         ClassPathResource htmlFile = new ClassPathResource("static/specific.html");
-        String html = Files.readString(htmlFile.getFile().toPath());
+        //String html = Files.readString(htmlFile.getFile().toPath());
+        String html = new String(htmlFile.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
         return ResponseEntity.ok(html);
     }
 
     @GetMapping(value = "/FromTo", produces = MediaType.TEXT_HTML_VALUE)
     public ResponseEntity<String> fromToPage() throws IOException {
         ClassPathResource htmlFile = new ClassPathResource("static/fromto.html");
-        String html = Files.readString(htmlFile.getFile().toPath());
+        //String html = Files.readString(htmlFile.getFile().toPath());
+        String html = new String(htmlFile.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
         return ResponseEntity.ok(html);
     }
 
     @GetMapping(value = "/KeyWord", produces = MediaType.TEXT_HTML_VALUE)
     public ResponseEntity<String> keyWordPage() throws IOException {
         ClassPathResource htmlFile = new ClassPathResource("static/keyword.html");
-        String html = Files.readString(htmlFile.getFile().toPath());
+        //String html = Files.readString(htmlFile.getFile().toPath());
+        String html = new String(htmlFile.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
         return ResponseEntity.ok(html);
     }
 
@@ -62,7 +67,8 @@ public class ContentController {
     public ResponseEntity<String> chaptersPage(@PathVariable("title") String title) throws IOException {
         // title 값은 필요에 따라 HTML 렌더링에 활용 가능
         ClassPathResource htmlFile = new ClassPathResource("static/chapters.html");
-        String html = Files.readString(htmlFile.getFile().toPath());
+        //String html = Files.readString(htmlFile.getFile().toPath());
+        String html = new String(htmlFile.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
         return ResponseEntity.ok(html);
     }
 
@@ -70,7 +76,8 @@ public class ContentController {
     public ResponseEntity<String> versesPage(@PathVariable("title") String title, @PathVariable("chapter") int chapter) throws IOException {
 
         ClassPathResource htmlFile = new ClassPathResource("static/verses.html");
-        String html = Files.readString(htmlFile.getFile().toPath());
+        //String html = Files.readString(htmlFile.getFile().toPath());
+        String html = new String(htmlFile.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
         return ResponseEntity.ok(html);
     }
 

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.List;
 
@@ -32,21 +33,24 @@ public class FreeBoardController {
     @GetMapping(value = "/board", produces = MediaType.TEXT_HTML_VALUE)
     public ResponseEntity<String> boardMainPage() throws IOException {
         ClassPathResource htmlFile = new ClassPathResource("static/boardmain.html");
-        String html = Files.readString(htmlFile.getFile().toPath());
+        //String html = Files.readString(htmlFile.getFile().toPath());
+        String html = new String(htmlFile.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
         return ResponseEntity.ok(html);
     }
 
     @GetMapping(value = "/insert", produces = MediaType.TEXT_HTML_VALUE)
     public ResponseEntity<String> boardInsertPage() throws IOException {
         ClassPathResource htmlFile = new ClassPathResource("static/boardinsert.html");
-        String html = Files.readString(htmlFile.getFile().toPath());
+        //String html = Files.readString(htmlFile.getFile().toPath());
+        String html = new String(htmlFile.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
         return ResponseEntity.ok(html);
     }
 
     @GetMapping(value = "/update/{boardPk}", produces = MediaType.TEXT_HTML_VALUE)
     public ResponseEntity<String> boardUpdatePage(@PathVariable("boardPk") int boardPk) throws IOException {
         ClassPathResource htmlFile = new ClassPathResource("static/boardupdate.html");
-        String html = Files.readString(htmlFile.getFile().toPath());
+        //String html = Files.readString(htmlFile.getFile().toPath());
+        String html = new String(htmlFile.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
         return ResponseEntity.ok(html);
     }
 
@@ -54,7 +58,8 @@ public class FreeBoardController {
     public ResponseEntity<String> boardDetailPage(@PathVariable("boardPk") int boardPk) throws IOException {
         // title 값은 필요에 따라 HTML 렌더링에 활용 가능
         ClassPathResource htmlFile = new ClassPathResource("static/boarddetail.html");
-        String html = Files.readString(htmlFile.getFile().toPath());
+        //String html = Files.readString(htmlFile.getFile().toPath());
+        String html = new String(htmlFile.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
         return ResponseEntity.ok(html);
     }
 
