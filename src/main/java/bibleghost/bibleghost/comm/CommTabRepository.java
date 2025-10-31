@@ -7,9 +7,9 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface CommTabRepository extends JpaRepository<CommTab, CommTabPK> {
-    @Query(value = "SELECT * FROM COMM_TAB WHERE COMM_ID = :commId AND LANG_ID = :langId", nativeQuery = true)
+    @Query(value = "SELECT * FROM comm_tab WHERE COMM_ID = :commId AND LANG_ID = :langId", nativeQuery = true)
     CommTab findCommNmByCodeAndLangId(@Param("commId") String commId, @Param("langId") String langId);
 
-    @Query(value = "SELECT * FROM COMM_TAB WHERE LANG_ID = 'KOR'", nativeQuery = true)
+    @Query(value = "SELECT * FROM comm_tab WHERE LANG_ID = 'KOR'", nativeQuery = true)
     List<CommTab> findAllByKor();
 }
